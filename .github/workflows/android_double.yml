@@ -27,9 +27,14 @@ jobs:
       - name: Install SCons
         run: pip install scons
 
-      - name: Build Android Template (Double)
+      - name: Build Android Libraries (SCons)
         run: |
           scons platform=android target=template_release precision=double arch=arm64 ANDROID_HOME=$ANDROID_HOME
+
+      - name: Build Android Template APK (Gradle)
+        run: |
+          cd platform/android/java
+          ./gradlew generateTemplates
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
