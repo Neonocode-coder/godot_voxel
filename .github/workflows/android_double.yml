@@ -34,7 +34,7 @@ jobs:
       - name: Build Android Template APK (Gradle)
         run: |
           cd platform/android/java
-          ./gradlew generateTemplates
+          ./gradlew generateGodotTemplates
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
